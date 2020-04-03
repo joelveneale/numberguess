@@ -31,7 +31,7 @@ while guess_count > 0:
         print("Previous Lower Guesses: " + str(lower_guesses))
         lower_guesses.sort()
     if higher_guesses and lower_guesses:
-        print("The number must be between " + (str(lower_guesses[0]) + " " + str(higher_guesses[0]) + "..."))
+        print("The number must be between " + (str(lower_guesses[-1]) + " and " + str(higher_guesses[0]) + "..."))
   elif guess1 < random_number:
     print('Try something a little higher...')
     guess_count = guess_count - 1
@@ -43,7 +43,7 @@ while guess_count > 0:
         print("Previous Higher Guesses: " + str(higher_guesses))
         higher_guesses.sort()
     if higher_guesses and lower_guesses:
-        print("The number must be between " + (str(lower_guesses[0]) + " " + str(higher_guesses[0]) + "..."))
+        print("The number must be between " + (str(lower_guesses[-1]) + " and " + str(higher_guesses[0]) + "..."))
 
   else:
     print("Please input a number between 1-100.")
