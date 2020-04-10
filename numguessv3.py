@@ -46,14 +46,15 @@ def check_end_result(result):
     else:
         print("\nUnlucky this time. You didn't guess the number within the guess count.\n")
         print("The number was: " + str(random_number))
-        play_again = input('Do you want to play again? y/n...')
-        if play_again == 'y':
-            main()
-        else:
-            print("\nThanks for playing.\n")
-            sys.exit()
-    print("\nThanks for playing.\n")
-    sys.exit()
+
+
+
+def shall_we_play_again(play_again):
+    if play_again == 'y':
+        main()
+    else:
+        print("\nThanks for playing.\n")
+        sys.exit()
 
 
 def check_if_guess_is_correct(guess, guess_count, victory):
@@ -75,6 +76,7 @@ def main():
     victory = False
     result = run_guessing_game(guess_count, victory)
     check_end_result(result)
+    shall_we_play_again(input('Do you want to play again? y/n...'))
     return
 
 
