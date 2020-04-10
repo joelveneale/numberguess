@@ -46,6 +46,12 @@ def check_end_result(result):
     else:
         print("\nUnlucky this time. You didn't guess the number within the guess count.\n")
         print("The number was: " + str(random_number))
+        play_again = input('Do you want to play again? y/n...')
+        if play_again == 'y':
+            main()
+        else:
+            print("\nThanks for playing.\n")
+            sys.exit()
     print("\nThanks for playing.\n")
     sys.exit()
 
