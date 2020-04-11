@@ -14,8 +14,8 @@ class PreviousGuesses:
         elif guess < random_number:
             self.change_previous_guesses(guess, 'lower')
 
-        getattr(self, 'lower').sort()
-        getattr(self, 'higher').sort()
+        self.lower.sort()
+        self.higher.sort()
 
     def change_previous_guesses(self, guess, direction):
         opposite_direction = 'lower' if direction == 'higher' else 'higher'
