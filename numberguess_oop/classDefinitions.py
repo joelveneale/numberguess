@@ -10,36 +10,34 @@ class Guess:
     def __init__(self, count=10):
         self.count = count
 
-    def resetValue(self):
+    def reset_value(self):
         self.input = ''
         self.value = 0
         self.valid = False
 
-    def getNewValue(self, input_message="What is your guess?"):
+    def get_new_value(self, input_message="What is your guess?"):
         print(str(self.count))
-        self.resetValue()
-        while(self.valid == False):
+        self.reset_value()
+        while(not self.valid):
             self.input = input(input_message)
-            self.validateInput()
+            self.validate_input()
         self.value = int(self.input)
         self.count = self.count - 1
     
-    def validateInput(self):
+    def validate_input(self):
         if self.input is "":
             print('Oops. You forgot to input a value. Please try again.')
-            self.valid = False
-        elif self.input.isdigit():
-            self.valid = True
-        else:
+        elif not self.input.isdigit():
             print("Oops you didn't input a number. Please try again.")
-            self.valid = False
+        else:
+            self.valid = True
 
 class PreviousGuesses:
 
     higher = []
     lower = []
 
-    def resetValues(self):
+    def reset_values(self):
         self.higher = []
         self.lower = []
 
