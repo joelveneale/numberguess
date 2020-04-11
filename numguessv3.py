@@ -84,6 +84,6 @@ def shall_we_play_again(play_again):
         main()
     else:
         print("\nThanks for playing.\n")
-        sys.exit()       
+        sys.exit()    
 
 main()
