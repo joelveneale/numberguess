@@ -16,6 +16,7 @@ def main():
     username = input("What is your username? ")
     level = difficulty.level
     highscores = Highscores(db, username, level)
+
     game = Game(guess, previousGuesses, highscores, difficulty)
     game.run()
 main()
