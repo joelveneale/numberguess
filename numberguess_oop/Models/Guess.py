@@ -3,15 +3,14 @@ class Guess:
     input = ''
     value = 0
     valid = False
-    
-    def __init__(self, count=10):
-        self.count = count
+
+    def __init__(self, difficulty):
+        self.difficulty = difficulty
 
     def reset_value(self):
         self.input = ''
         self.value = 0
         self.valid = False
-        self.count = 10
 
     def get_new_value(self, input_message="What is your guess? "):
         self.input = ''
@@ -21,7 +20,7 @@ class Guess:
             self.input = input(input_message)
             self.validate_input()
         self.value = int(self.input)
-        self.count = self.count - 1
+
     
     def validate_input(self):
         if self.input is "":
