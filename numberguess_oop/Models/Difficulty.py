@@ -5,23 +5,18 @@ class Difficulty:
     input = ''
     value = 0
     valid = False
-    difficulty = 1
-
-    def __init__(self, count=10):
-        self.count = count
+    random_number = random.randint(0, 100)
+    min_max = list(range(0, 100))
+    count = 10
+    level = ''
 
     def reset_difficulty(self):
         self.input = ''
         self.value = 0
         self.valid = False
-        self.difficulty = 1
 
-
-    def set_difficulty(self, input_question="What difficulty would you like to play at? Press 1 for Easy, press 2 for Medium, or press 3 for Hard: " ):
-        self.input = ''
-        self.value = 0
-        self.valid = False
-        self.difficulty = 1
+    def set_difficulty(self, input_question="What difficulty would you like to play at? Press 1 for Easy, press 2 for Medium, or press 3 for Hard" ):
+        self.reset_difficulty()
 
         while (not self.valid):
            self.input = input(input_question)
@@ -29,16 +24,23 @@ class Difficulty:
 
         self.value = int(self.input)
         if self.value == 1:
-            self.difficulty = 1
+            self.random_number = random.randint(0, 100)
+            self.min_max = list(range(0, 100))
+            self.count = 10
+            self.level = 'easy'
             print("You have selected easy mode. You have 10 attempts to guess a number between 0-100")
         elif self.value == 2:
-            self.difficulty = 2
+            self.random_number = random.randint(0, 1000)
+            self.min_max = list(range(0, 1000))
+            self.count = 15
+            self.level = 'medium'
             print("You have selected medium mode. You have 15 attempts to guess a number between 0-1000")
         elif self.value == 3:
-            self.difficulty = 3
+            self.random_number = random.randint(0, 10000)
+            self.min_max = list(range(0, 10000))
+            self.count = 20
+            self.level = 'hard'
             print("You have selected hard mode. You have 20 attempts to guess a number between 0-10000")
-
-        return int(self.difficulty)
 
     def validate_difficulty(self):
         if self.input is "":
