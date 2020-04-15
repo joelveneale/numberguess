@@ -19,9 +19,12 @@ class Highscores:
     def print_highscores(self):
         print('\nCurrent highscores:\n')
         highscore_df = pd.DataFrame.from_dict(self.db)
+
         easy_df = highscore_df[highscore_df['difficulty'] == 'easy']
+
         edf_sorted = easy_df.sort_values(by=['score']).drop(columns=['difficulty']).reset_index(drop=True)
         edf_sorted.index = edf_sorted.index + 1
+
         medium_df = highscore_df[highscore_df['difficulty'] == 'medium']
         mdf_sorted = medium_df.sort_values(by=['score']).drop(columns=['difficulty']).reset_index(drop=True)
         mdf_sorted.index = mdf_sorted.index + 1
